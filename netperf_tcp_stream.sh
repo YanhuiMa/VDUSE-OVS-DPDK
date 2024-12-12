@@ -47,8 +47,7 @@ run_test() {
         MPSTAT_PID=$!
 
         # Run netperf with specified packet size and save its output
-	echo $PACKET_SIZE >> "$NETPERF_LOG_FILE"
-        numactl -m 1 -N 1 ip netns exec ns1 netperf -t TCP_STREAM -f m -H "$NETPERF_SERVER" -l "$NETPERF_TEST_DURATION" -- -m "$PACKET_SIZE" | grep "10^6bits/sec" -A 2 | tail -n 1 | awk '{print $5}' >> "$NETPERF_LOG_FILE"
+        numactl -m 0 -N 0 ip netns exec ns1 netperf -t TCP_STREAM -f m -H "$NETPERF_SERVER" -l "$NETPERF_TEST_DURATION" -- -m "$PACKET_SIZE" | grep "10^6bits/sec" -A 2 | tail -n 1 | awk '{print $5}' >> "$NETPERF_LOG_FILE"
 
         # Stop mpstat process
         kill $MPSTAT_PID
