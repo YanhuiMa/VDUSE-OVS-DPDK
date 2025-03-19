@@ -33,4 +33,6 @@ echo "start ovs vswitch daemon"
 /usr/bin/ovs-vsctl --no-wait set Open_vSwitch . other_config:userspace-tso-enable="true"
 # only applicable for dell-per760-06, isolating core 2 and 18
 /usr/bin/ovs-vsctl --no-wait set Open_vSwitch . other_config:pmd-cpu-mask="0x0040004"
+# only applicable for dell-per440-24, isolating core 2 and 34
+#/usr/bin/ovs-vsctl --no-wait set Open_vSwitch . other_config:pmd-cpu-mask="0x400000004"
 /usr/sbin/ovs-vswitchd unix:$DB_SOCK --pidfile --detach --log-file=/var/log/openvswitch/ovs-vswitchd.log
