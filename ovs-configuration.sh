@@ -31,5 +31,6 @@ export DB_SOCK=/var/run/openvswitch/db.sock
 echo "start ovs vswitch daemon"
 /usr/bin/ovs-vsctl --no-wait set Open_vSwitch . other_config:dpdk-init="true"
 /usr/bin/ovs-vsctl --no-wait set Open_vSwitch . other_config:userspace-tso-enable="true"
+# only applicable for dell-per760-06, isolating core 2 and 18
 /usr/bin/ovs-vsctl --no-wait set Open_vSwitch . other_config:pmd-cpu-mask="0x0040004"
 /usr/sbin/ovs-vswitchd unix:$DB_SOCK --pidfile --detach --log-file=/var/log/openvswitch/ovs-vswitchd.log
