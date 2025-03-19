@@ -20,6 +20,7 @@ ip netns exec ns1 ip a a 192.168.101.2/24 dev eth1
 ip netns exec ns1 ip l set dev eth1 up
 #ip netns exec ns0 ping 192.168.101.2
 
+# only applicable for dell-per760-06
 echo 55515551 > /sys/class/vduse/vduse0/vq0/irq_cb_affinity
 echo 55515551 > /sys/class/vduse/vduse0/vq1/irq_cb_affinity
 echo 55515551 > /sys/class/vduse/vduse1/vq0/irq_cb_affinity
