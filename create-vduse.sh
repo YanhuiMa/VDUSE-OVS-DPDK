@@ -26,6 +26,14 @@ echo 55515551 > /sys/class/vduse/vduse0/vq1/irq_cb_affinity
 echo 55515551 > /sys/class/vduse/vduse1/vq0/irq_cb_affinity
 echo 55515551 > /sys/class/vduse/vduse1/vq1/irq_cb_affinity
 
+
+# only applicable for dell-per440-24
+#echo 55555551,55555551 > /sys/class/vduse/vduse0/vq0/irq_cb_affinity
+#echo 55555551,55555551 > /sys/class/vduse/vduse0/vq1/irq_cb_affinity
+#echo 55515551 > /sys/class/vduse/vduse1/vq0/irq_cb_affinity
+#echo 55515551 > /sys/class/vduse/vduse1/vq1/irq_cb_affinity
+
+
 cat /sys/class/vduse/vduse0/vq0/irq_cb_affinity
 cat /sys/class/vduse/vduse0/vq1/irq_cb_affinity
 cat /sys/class/vduse/vduse1/vq1/irq_cb_affinity
